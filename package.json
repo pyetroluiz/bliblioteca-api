@@ -1,9 +1,9 @@
 {
   "name": "biblioteca-api",
   "version": "1.0.0",
-  "main": "biblioteca-api/src/app.js",
+  "main": "src/app.js",
   "scripts": {
-    "dev": "node biblioteca-api/src/app.js"
+    "dev": "node src/app.js"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
