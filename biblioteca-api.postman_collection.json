@@ -1,0 +1,127 @@
+{
+	"info": {
+		"name": "Biblioteca API",
+		"_postman_id": "12345678-1234-1234-1234-123456789abc",
+		"description": "API REST para gerenciar livros com autenticação Basic e permissões.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registrar Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["auth", "register"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Livros",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46MTIzNA==",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/books",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["books"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Livro (Admin)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46MTIzNA==",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Dom Casmurro\",\n  \"author\": \"Machado de Assis\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/books",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["books"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pegar Livro emprestado",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46MTIzNA==",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/books/1/borrow",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["books", "1", "borrow"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Devolver Livro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46MTIzNA==",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/books/1/return",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["books", "1", "return"]
+				}
+			},
+			"response": []
+		}
+	]
+}
